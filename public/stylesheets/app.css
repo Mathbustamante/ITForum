@@ -1,0 +1,178 @@
+
+/* ---------- NavBar ------------- */
+a {
+  color: #0F75BC;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    color: #0F75BC;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-default {
+    background-color: #FFFFFF;
+    height: 72px;
+    box-shadow: 0px 0px 4px #000000;
+}
+
+.navbar-left{
+  margin-left: 70px;
+}
+
+.navbar-brand > img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+.bar .navbar-brand{ 
+
+  background: url(https://preview.ibb.co/h7sGFo/WITS.png) center / contain no-repeat;
+
+  margin-top: -18px;
+  width: 229px;
+  height: 110px;
+}
+
+.bar .nav {
+	padding-top: 16px;
+  	padding-bottom: 36px;
+}
+
+/* ---------- it_forum/NEW ------------- */
+
+#it-new .container{
+ 
+  margin-top: 7%;
+  max-width: 60%;
+  border: 0.5px solid #0F75BC;
+
+
+}
+
+#it-new .container .form-area {
+
+  padding: 10px 40px 60px;
+  margin: 10px 0px 0px;
+
+}
+
+#it-new .container .form-area h1 {
+
+  margin-bottom: 30px;
+
+}
+
+
+/* ---------- it_forum/------------- */
+
+#index .container{
+  margin-top: 4%;
+  width: 1120px;
+}
+
+
+#index .container .results span {
+  float: right;
+}
+
+#index .container .questions{
+  margin-top: 20px;
+  display: none;
+}
+
+#tabs{
+  margin-top: 55px;
+ 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#tabs span {
+    margin-right: 32px;
+}
+
+#index .container .questions .problem{
+    color: #0F75BC;
+    font-size: 20px;
+    margin-bottom: 0px;
+
+}
+
+.shortby{
+  float: right;
+}
+
+.dropdown .btn{
+  height: 5px;
+  margin-top: -18px;
+}
+
+/* ---------- it_forum/ SHOW PAGE------------- */
+
+#show .container{
+  margin-top: 4%;
+  
+  max-width: 60%;
+
+
+}
+
+#show .question{
+    font-size: 20px;
+    margin-bottom: 0px;
+  
+}
+
+
+#show .description{
+  margin-top: 20px;
+}
+
+#show span{
+
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
+
+
+/* ---------- footer ------------- */
+
+
+#loadMore {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+#loadMore a {
+    background: #0F75BC;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    padding: 10px 30px;
+    transition: all 0.25s ease-out;
+    -webkit-font-smoothing: antialiased;
+}
+#loadMore a:hover {
+    background-color: purple;
+}
+
+.footer{
+  margin-top: 30px;
+  min-height: 100%;
+  margin-bottom: -100px; /* Equivalent to footer's height */
+  padding-bottom: 100px; /* Equivalent to footer's height */
+
+  box-sizing: border-box;
+  background-color: #f7f7f7;;
+}
+
+
+
+
+

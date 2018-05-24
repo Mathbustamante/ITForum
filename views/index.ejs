@@ -1,0 +1,65 @@
+<% include ./partials/header%>
+
+<div id="index">
+	<div class="container">
+
+		<div class="results">
+			
+
+
+  			<h1>Results<span><a href="/it_forum/new" type="button" class=" btn btn-primary btn-lg">Ask a question<a></span></h1>
+  		</div>
+
+
+  			<div id="tabs">
+  				<a></a>
+                <span><a class="all" href="/it_forum?search=">All</a></span>
+                <span><a href="/it_forum?search=wifi">Wifi</a></span>
+                <span><a href="/it_forum?search=Print">Printer</a></span>
+                <span><a href="/it_forum?search=Canvas">Canvas</a></span>
+
+                <span class="shortby">
+               	<div class="dropdown">
+  					<button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+  					<span class="caret"></span></button>
+  					<ul class="dropdown-menu">
+	    				<li><a href="#">HTML</a></li>
+					    <li><a href="#">CSS</a></li>
+					    <li><a href="#">JavaScript</a></li>
+	    				
+  					</ul>
+				</div>
+
+               	</span>
+
+                <span class="shortby">Sort By:</span>
+               	
+            </div>
+
+
+		
+
+
+		<% person.forEach(function(student){ %>
+			<div> 
+				<!-- <h2><%=student.name %><h2>
+				<p><%= student.email %></p>
+				<p><%= student.id %></p> -->
+
+				<div class="questions">
+					<a class="problem lead" href="/it_forum/<%= student._id %>"><%= student.question %></a>
+					<p class="description"><%= student.description.substring(0, 350) %>...</p>
+					<span><%= student.created.toDateString() %></span><span>        <%= student.created.toLocaleTimeString() %></span>
+					
+				</div>
+			</div>
+
+		<% }); %>
+
+		<div id="loadMore" style="">
+      		<a href="#">Load More</a>
+    	</div>
+
+	</div>
+</div>
+<% include ./partials/footer%>
