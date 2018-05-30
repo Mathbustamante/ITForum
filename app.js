@@ -10,6 +10,9 @@ var express         = require("express");
     seedDB          = require("./seeds");
 
 
+//Use seedDB to manually add posts and comments (Used for testing purposes)
+//seedDB();
+
 //========================
 //REQUIRE ROUTES
 //======================== 
@@ -56,13 +59,15 @@ app.use("/it_forum" ,indexRoutes);
 //========================
 //INITIALIZE SERVER ON PORT 3000
 //======================== 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("it_forum server is running!!");
+app.listen(3000, function(){
+	console.log("Server has started on port 3000");
 });
 //========= END USE INITIALIZE SERVER ON PORT 3000 ===============
 
 
-
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("it_forum server is running!!");
+// });
 
 // students.create(
 //     {

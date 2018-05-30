@@ -46,11 +46,27 @@ router.get("/new", isLoggedIn,  function(req, res){
 });
 
 //CREATE ROUTE
-router.post("/", function(req, res){
-	students.create(req.body.student, function(err, newQuestion){
+router.post("/",isLoggedIn, function(req, res){
+	//get data from form and add to campgrounds array
+    var name = req.body.student.name;
+    var email = req.body.student.email;
+    var id = req.body.student.id;
+
+    var question = req.body.student.question;
+    var description = req.body.student.description;
+   
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
+    var newPost = {name: name, question: question, description: description, author: author, email: email, id: id}
+    // Create a new campground and save to DB
+    console.log(newPost);
+    students.create(newPost , function(err, newQuestion){
 		if(err){
 			res.render("posts/new");
 		} else {
+            console.log(newQuestion);
 			res.redirect("/it_forum");
 		}
 	});

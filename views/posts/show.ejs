@@ -1,41 +1,38 @@
 <% include ../partials/header %>
-<div id="show">
-	<div class="container">
-	    <div class="question"><h1><%= student.question %></h1></div>
-	    <div class="">
-	        <div class="description">
-	            <p><%= student.description %></p> 
-	        </div>
-	    </div>
-
-	    <div class="comment-btn">
-	    	<a class="btn btn-primary" href="/it_forum/<%= student._id %>/comments/new">Reply</a>
-	    </div>
-
-	    <div class="comments-answers">
-	    	<h3> Answers </h3>
-		</div>
 
 
-		    <% student.comments.forEach(function(comment){ %>
-		   <div class="comments-live">
-		    	<p>
-		    		<a class ="user" href="#"><%= comment.author %></a> - Replied on <%= student.created.toDateString() %>        <%= student.created.toLocaleTimeString() %>
-		    	</p>		
-		    	<div class ="comment-text">
-		    		<%= comment.text %>
-		    	</div>   
-			<% }); %>
-		</div>
+<div class="container">
 
-	   <!-- 	<div class="buttons">
-		   	<span><a class="btn btn-primary" href="/it_forum/<%= student._id %>/edit" role="button">Edit this post</a></span>
-		    
-		    <span><form id="delete" action="/it_forum/<%= student._id %>?_method=DELETE" method="POST">
-		        <button class="btn btn-danger">Delete</button>
-		    </form></span>
-		</div> -->
-	</div>	    
-</div>
+<div class="col-md-12">
+            <div class="thumbnail">
+                <div class="caption-full">
+                    <h4 class="pull-right"></h4>
+                    <h4><a><%=student.question%></a></h4>
+                    <p><%= student.description %></p>
+                    <p>
+                        <em>Submitted By <%= student.author.username %></em>
+                    </p>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/it_forum/<%= student._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% student.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right">10 days ago</span>
+                            <p>
+                                <%= comment.text %> 
+                            </p>
+                           
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
 <% include ../partials/footer %>
 
