@@ -3,11 +3,11 @@ var router  = express.Router();
 var students = require("../models/post");
 var passport = require("passport");
 var User = require("../models/user");
+var flash           = require("connect-flash");
 
-
-
+app.use(flash());
 router.get("/", function(req, res){
-    res.render("landing");
+    res.redirect("/it_forum");
 });
 
 router.get("/register", function(req, res){
@@ -47,7 +47,7 @@ router.post("/login", passport.authenticate("local",
 
 router.get("/logout", function(req, res) {
     req.logout();
-    // req.flash("success", "You need to be logged in to do that");
+    req.flash("success", "Logded you out!");
     res.redirect("/it_forum");
 });
 
@@ -55,7 +55,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    // req.flash("error", "Please login first!");
+    req.flash("error", "Please login first!");
     res.redirect("/login");
 }
 

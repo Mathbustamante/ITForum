@@ -7,7 +7,8 @@ var express         = require("express");
     User            = require("./models/user"),
     LocalStrategy   = require("passport-local"),
     Comment         = require("./models/comment"),
-    seedDB          = require("./seeds");
+    seedDB          = require("./seeds"),
+    flash           = require("connect-flash");
 
 
 //Use seedDB to manually add posts and comments (Used for testing purposes)
@@ -28,6 +29,14 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(flash());
+
+app.use(function(req, res, next){
+   res.locals.currentUser = req.user;
+   // res.locals.error = req.flash("error");
+   // res.locals.success = req.flash("success");
+   next();
+});
 
 
 //========================
@@ -59,15 +68,15 @@ app.use("/it_forum" ,indexRoutes);
 //========================
 //INITIALIZE SERVER ON PORT 3000
 //======================== 
-// app.listen(3000, function(){
-// 	console.log("Server has started on port 3000");
-// });
+app.listen(3000, function(){
+	console.log("Server has started on port 3000");
+});
 //========= END USE INITIALIZE SERVER ON PORT 3000 ===============
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("it_forum server is running!!");
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("it_forum server is running!!");
+// });
 
 // students.create(
 //     {

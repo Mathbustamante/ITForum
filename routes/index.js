@@ -87,18 +87,15 @@ router.get("/:id", function(req, res){
 
 
 //EDIT ROUTE
-router.get("/:id/edit", function(req, res){
+router.get("/:id/edit", checkCampgroundOwnership, function(req, res){
     students.findById(req.params.id, function(err, foundStudent){
-        if(err){
-            res.redirect("/it_forum");
-        } else {
-            res.render("posts/edit", {student: foundStudent});
-        }
+        res.render("posts/edit", {student: foundStudent});
     });
 });
 
+
 //UPDATE ROUTE 
-router.put("/:id", function(req, res) {
+router.put("/:id", checkCampgroundOwnership, function(req, res) {
     students.findByIdAndUpdate(req.params.id, req.body.student, function(err, updatedPost){
         if(err){
             res.redirect("/it_forum");
@@ -110,7 +107,7 @@ router.put("/:id", function(req, res) {
 
 
 // DELETE ROUTE
-router.delete("/:id", function(req, res){
+router.delete("/:id", checkCampgroundOwnership, function(req, res){
    //clock out
    students.findByIdAndRemove(req.params.id, function(err){
        if(err){
@@ -128,6 +125,28 @@ function isLoggedIn(req, res, next){
     }
     // req.flash("error", "Please login first!");
     res.redirect("/login");
+}
+
+function checkCampgroundOwnership(req, res, next){
+    if(req.isAuthenticated()){
+             students.findById(req.params.id, function(err, foundPost) {
+                 if(err){
+                    //req.flash("error", "Campground not found");
+                    res.redirect("back");
+                 } else {
+                     if(foundPost.author.id.equals(req.user._id)){
+                         next();
+                     } else{
+                        //req.flash("error", "You dont have permition to do that");
+                         res.redirect("back");
+                     }
+                    
+                 }
+            });
+        } else{
+            //req.flash("error", "You need to be logged in to do that");
+            res.redirect("back");
+        }    
 }
 
 module.exports = router;

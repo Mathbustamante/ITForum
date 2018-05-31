@@ -44,45 +44,67 @@ router.post("/", isLoggedIn, function(req, res){
    });
 });
 
-// app.get("/it_forum/:id/comments/:comment_id/edit", function(req, res) {
-//     Comment.findById(req.params.comment_id, function(err, foundComment){
-//       if(err){
-//           res.redirect("back");
-//       } else {
-//         res.render("comments/edit", {student_id: req.params.id, comment: foundComment});
-//       }
-//    });
-// });
+router.get("/:comment_id/edit", function(req, res) {
+    Comment.findById(req.params.comment_id, function(err, foundComment){
+      if(err){
+          res.redirect("back");
+      } else {
+        res.render("comments/edit", {student_id: req.params.id, comment: foundComment});
+      }
+   });
+});
 
 // // COMMENT UPDATE
-// app.put("/it_forum/:id/comments/:comment_id", checkCommentdOwnership, function(req, res){
-//    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
-//       if(err){
-//           res.redirect("back");
-//       } else {
-//           res.redirect("/it_forum/" + req.params.id );
-//       }
-//    });
-// });
+router.put("/:comment_id", checkCommentdOwnership, function(req, res){
+   Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+      if(err){
+          res.redirect("back");
+      } else {
+          res.redirect("/it_forum/" + req.params.id );
+      }
+   });
+});
 
 // // COMMENT DESTROY ROUTE
-// app.delete("/it_forum/:comment_id", checkCommentdOwnership,  function(req, res){
-//     //findByIdAndRemove
-//     Comment.findByIdAndRemove(req.params.comment_id, function(err){
-//        if(err){
-//            res.redirect("back");
-//        } else {
-//            res.redirect("/it_forum/" + req.params.id);
-//        }
-//     });
-// });
+router.delete("/:comment_id", checkCommentdOwnership,  function(req, res){
+    //findByIdAndRemove
+    Comment.findByIdAndRemove(req.params.comment_id, function(err){
+       if(err){
+           res.redirect("back");
+       } else {
+           res.redirect("/it_forum/" + req.params.id);
+       }
+    });
+});
 
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    // req.flash("error", "Please login first!");
+    req.flash("error", "Please login first!");
     res.redirect("/login");
 }
+
+function checkCommentdOwnership(req, res, next){
+    if(req.isAuthenticated()){
+             Comment.findById(req.params.comment_id, function(err, foundComment) {
+                 if(err){
+                    res.redirect("back");
+                 } else {
+                     if(foundComment.author.id.equals(req.user._id)){
+                         next();
+                     } else{
+                         req.flash("error", "You dont have permition to do that");
+                         res.redirect("back");
+                     }
+                    
+                 }
+            });
+        } else{
+            req.flash("error", "You need to be logged in to do that");
+            res.redirect("back");
+        }    
+}
+
 
 module.exports = router;
