@@ -6,7 +6,7 @@
         <div style="width: 30%; margin: 25px auto;">
             <form action="/it_forum/<%= student._id %>/comments" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="comment[text]" placeholder ="text">
+                    <textarea class="form-control" type="textarea" name="comment[text]" placeholder ="text" maxlength="500" rows="7"></textarea> 
                 </div>
                
             

@@ -1,14 +1,19 @@
 <% include ./partials/header %>
 
-
-<div class="container">
-<h1>Login</h1>
-
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Login</button>
-</form>
-<a href="/register">Create an account</a>
+<div id="login">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="form-area">
+				<h1>Login</h1>
+				<p>Change it to Office 365</p>
+				<form action="/login" method="POST">
+				    <input type="text" name="username" placeholder="username">
+				    <input type="password" name="password" placeholder="password">
+				    <button>Login</button>
+				</form>
+				<a href="/register">Create an account</a>
+			</div>
+		</div>
+	</div>
 </div>
 <% include ./partials/footer %>

@@ -9,6 +9,8 @@
 
 </head>
 <body>
+  
+
      <!-- Static navbar -->
   <nav class="navbar navbar-default bar">
     <div class="container">
@@ -25,10 +27,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="www.nwuwits.org">About WITS</a></li>
-          <li><a href="#">Submit a ticket</a></li>
-          <li><a href="#"></a></li>
-          <li><a href="/register">Sign In</a></li>
+          
         </ul>
         <ul class="nav navbar-nav navbar-right">
        
@@ -54,8 +53,21 @@
     <!--/.container-fluid -->
   </nav>
 
+<div class ="secondheader">
+      <div class="container">
+        <div id="navbar" >
+        <ul class="enter nav navbar-nav navbar-right">
 
-
-
+          <% if (currentUser) { %>
+            <li><a href="#">Welcome <%= currentUser.username  %>!</a></li>
+            <li><a href="/logout">Log out</a></li>
+          <% } else { %>  
+            <li><a href="/login">Sign in</a></li>
+            <li><a href="/register">Register</a></li>
+          <% } %>
+          </ul>
+        </div>
+      </div>
+</div>
 
 

@@ -15,7 +15,7 @@ router.get("/", function(req, res){
                 if(students.length < 1){
                     noMatch = "No results found.";
                 } 
-                res.render("posts/index", {person: person, noMatch: noMatch});
+                res.render("posts/index", {person: person, noMatch: noMatch, currentUser: req.user});
             }
         });
     } else {
@@ -24,7 +24,7 @@ router.get("/", function(req, res){
             if(err){
                 console.log(err);
             } else  {
-                res.render("posts/index", {person: person});
+                res.render("posts/index", {person: person, currentUser: req.user});
             }
         });
     }
@@ -78,7 +78,7 @@ router.get("/:id", function(req, res){
         if(err){
             res.redirect("posts/new");
         } else {
-            res.render("posts/show", {student: foundStudent});
+            res.render("posts/show", {student: foundStudent, currentUser: req.user});
         }
     });
 });
