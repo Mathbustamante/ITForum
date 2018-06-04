@@ -23,7 +23,7 @@ router.post("/register", function(req, res){
             return res.render("register", {"error": err.message});
        } 
         passport.authenticate("local")(req, res, function(){
-            
+            req.flash("success", "Welcome to our forum " +  user.username);
             res.redirect("/it_forum");
         });
    }); 
@@ -47,7 +47,7 @@ router.post("/login", passport.authenticate("local",
 
 router.get("/logout", function(req, res) {
     req.logout();
-    req.flash("success", "Logded you out!");
+    req.flash("success", "Logged you out!");
     res.redirect("/it_forum");
 });
 

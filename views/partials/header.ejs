@@ -25,28 +25,27 @@
         <a class="navbar-brand text-hide" href="/it_forum">WITS
         </a>
       </div>
+      
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-          
-        </ul>
+        
         <ul class="nav navbar-nav navbar-right">
        
 
-       <form class="navbar-form"  action="/it_forum" method="GET">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="search" >
+         <form class="navbar-form"  action="/it_forum" method="GET">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="search" >
 
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+             
             </div>
-           
-          </div>
 
-        </form>
+          </form>
  
       
 
-      </ul>
+        </ul>
       </div>
       <!--/.nav-collapse -->
     </div>
@@ -69,5 +68,41 @@
         </div>
       </div>
 </div>
+
+
+<div class ="alert">
+  <div class="container">
+    <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+     <% } %>
+     <% if(success && success.length > 0){ %>
+       <div class="alert alert-success" role="alert">
+        <%= success %>
+       </div>
+    <% } %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

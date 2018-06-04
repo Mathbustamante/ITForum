@@ -4,6 +4,10 @@ a {
   color: #0F75BC;
 }
 
+h1{
+  font-weight: 300;
+}
+
 .navbar{
   padding-top: 10px;
 }
@@ -64,26 +68,26 @@ a {
   background-color: #0F75BC;
   height: auto;
   margin-top: -0px;
+  //opacity: 0.75;
 }
-
-
-
 
 .secondheader a{
   margin: 0;
   color: white;
 }
 
+.alert{
+  margin-top: 5px;
+}
+
+
 /* ---------- it_forum/NEW ------------- */
 
 #it-new .container{
- 
-  margin-top: 7%;
-  max-width: 40%;
-  border: 0.5px solid #0F75BC;
-
+  float: ;
 
 }
+
 
 #it-new .container .form-area {
 
@@ -102,12 +106,20 @@ a {
   display: none;
 }
 
+.Category{
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
+
+
 
 /* ---------- it_forum/------------- */
 
 #index .container{
   margin-top: 3%;
-  width: 1120px;
+  
 }
 
 
@@ -164,8 +176,9 @@ form#delete-form{
 
 
 #show .question{
-    font-size: 27px;
+    font-size: 30px;
     margin-bottom: 0px;
+    font-weight: 300;
   
 }
 
@@ -222,6 +235,11 @@ form#delete{
 
 .user{
   font-size: 15px;
+}
+
+.well{
+  margin-top: -50px;
+  margin-bottom: 30px;
 }
 
 /* ---------- LogIn ------------- */

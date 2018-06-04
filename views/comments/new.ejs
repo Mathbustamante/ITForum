@@ -1,25 +1,26 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <div class="row">
-        <h1 style="text-align:center;">Add New Comment to <%= student.question %></h1>
-        <div style="width: 30%; margin: 25px auto;">
-            <form action="/it_forum/<%= student._id %>/comments" method="POST">
-                <div class="form-group">
-                    <textarea class="form-control" type="textarea" name="comment[text]" placeholder ="text" maxlength="500" rows="7"></textarea> 
-                </div>
-               
-            
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
-                </div>
-                 
-                
-            </form>
-             <a href="/it_forum">Go back</a>
+
+
+<div id ="it-new">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="form-area">  
+                 <form action="/it_forum/<%= student._id %>/comments" method="POST">
+                    <h1>Add New Comment</h1>             
+
+                     <div class="form-group">
+                        <p> to '<%= student.question %>'</p>
+                        <textarea class="form-control" type="textarea" name="comment[text]" placeholder ="" maxlength="500" rows="7"></textarea> 
+                                         
+                    </div>
+                     <div class="submit form-group">
+                        <button class="btn btn-sm btn-primary ">Submit</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
-        
-       
     </div>
 </div>
 <% include ../partials/footer %>

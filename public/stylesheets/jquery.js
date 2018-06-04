@@ -16,10 +16,10 @@
 //Load more button
 
 $(function(){
-    $(".questions").slice(0, 8).show(); // select the first ten
+    $(".questions").slice(0, 7).show(); // select the first ten
     $("#loadMore").click(function(e){ // click event for load more
         e.preventDefault();
-        $(".questions:hidden").slice(0, 8).show(); // select next 10 hidden divs and show them
+        $(".questions:hidden").slice(0, 7).show(); // select next 10 hidden divs and show them
         if($(".questions:hidden").length == 1){ // check if any hidden divs still exist
             alert("All our questions"); // alert if there are none left
         }

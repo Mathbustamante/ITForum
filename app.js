@@ -14,6 +14,8 @@ var express         = require("express");
 //Use seedDB to manually add posts and comments (Used for testing purposes)
 //seedDB();
 
+// https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs
+
 //========================
 //REQUIRE ROUTES
 //======================== 
@@ -29,15 +31,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(flash());
-
-app.use(function(req, res, next){
-   res.locals.currentUser = req.user;
-   // res.locals.error = req.flash("error");
-   // res.locals.success = req.flash("success");
-   next();
-});
-
 
 //========================
 //PASSPORT CONFIGURATION
@@ -47,6 +40,16 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(flash());
+
+app.use(function(req, res, next){
+   res.locals.currentUser = req.user;
+   res.locals.error = req.flash("error");
+   res.locals.success = req.flash("success");
+   next();
+});
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -68,15 +71,15 @@ app.use("/it_forum" ,indexRoutes);
 //========================
 //INITIALIZE SERVER ON PORT 3000
 //======================== 
-// app.listen(3000, function(){
-// 	console.log("Server has started on port 3000");
-// });
+app.listen(3000, function(){
+	console.log("Server has started on port 3000");
+});
 //========= END USE INITIALIZE SERVER ON PORT 3000 ===============
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("it_forum server is running!!");
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("it_forum server is running!!");
+// });
 
 // students.create(
 //     {

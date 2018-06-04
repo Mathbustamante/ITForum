@@ -4,32 +4,38 @@
 		<div class="col-md-12">
 		    <div class="form-area">  
 		        <form role="form" action="/it_forum" method="POST">
-		            <h1>Ask us!</h1>
-		            <div class="show-none">
-			    		<div class="form-group">
-							<input type="text" class="form-control" id="name" name="student[name]" placeholder="Name" >
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" id="email" name="student[email]" placeholder="Email" >
-						</div>
-						<div class="form-group">
-							<input type="id" class="form-control" id="mobile" name="student[id]" placeholder="Student ID" >
-						</div>
-					</div>
-						
+		            <h1>Ask a Question</h1>				
 		            <div class="form-group">
-		                <textarea class="form-control" type="textarea" name="student[question]" placeholder="Problem" maxlength="140" rows="1"></textarea>
+		            	<p>Subject</p>
+		                <textarea class="form-control" type="textarea" name="student[question]" placeholder="" maxlength="140" rows="1"></textarea>
 		                                 
 		            </div>
 
 		             <div class="form-group">
-		                <textarea class="form-control" type="textarea" name="student[description]" placeholder="Description" maxlength="500" rows="7"></textarea>
+		             	<p>Details</p>
+		                <textarea class="form-control" type="textarea" name="student[description]" placeholder="" maxlength="500" rows="7"></textarea>
 		                                 
 		            </div>
-		            
-		        	 <div class="form-group">
-                    	<button class="btn btn-lg btn-primary btn-block">Submit</button>
+		            <div class="Category">
+			           <div class="btn-group" role="group" aria-label="...">
+						  <div class="btn-group" role="group">
+						    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						      Category
+						      <span class="caret"></span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <li><a href="#">Wifi</a></li>
+						      <li><a href="#">Printer</a></li>
+						      <li><a href="#">Canvas</a></li>
+						      <li><a href="#">Projector</a></li>
+						    </ul>
+						  </div>
+						</div>
+		            </div>
+		        	 <div class="submit form-group">
+                    	<button class="btn btn-sm btn-primary ">Submit</button>
                 	</div>
+
 		        </form>
 		    </div>
 		</div>

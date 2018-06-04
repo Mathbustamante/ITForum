@@ -13,14 +13,14 @@ router.get("/", function(req, res){
             } else  {
                 var noMatch;  
                 if(students.length < 1){
-                    noMatch = "No results found.";
+                    req.flash("error", "No results found");
                 } 
                 res.render("posts/index", {person: person, noMatch: noMatch, currentUser: req.user});
             }
         });
     } else {
 
-         students.find({}, function(err, person){
+         students.find({}).sort({date: -1}).exec(function(err, person){
             if(err){
                 console.log(err);
             } else  {
@@ -123,7 +123,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    // req.flash("error", "Please login first!");
+    req.flash("error", "Please login first!");
     res.redirect("/login");
 }
 
@@ -137,14 +137,14 @@ function checkCampgroundOwnership(req, res, next){
                      if(foundPost.author.id.equals(req.user._id)){
                          next();
                      } else{
-                        //req.flash("error", "You dont have permition to do that");
+                         req.flash("error", "You dont have permition to do that");
                          res.redirect("back");
                      }
                     
                  }
             });
         } else{
-            //req.flash("error", "You need to be logged in to do that");
+            req.flash("error", "You need to be logged in to do that");
             res.redirect("back");
         }    
 }
