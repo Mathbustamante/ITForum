@@ -14,11 +14,11 @@
   			<div id="tabs">
   				<a></a>
                 <span><a class="all" href="/it_forum?search=">All</a></span>
-                <span><a href="/it_forum?search=wifi">Wifi</a></span>
-                <span><a href="/it_forum?search=Print">Printer</a></span>
-                <span><a href="/it_forum?search=Canvas">Canvas</a></span>
+                <span><a href="https://nwuwits.org">About WITS</a></span>
+                <span><a href="">FootPints</a></span>
+                <span><a href="">CSIT</a></span>
 
-                <span class="shortby">
+               <!--  <span class="shortby">
                	<div class="dropdown">
   					<button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
   					<span class="caret"></span></button>
@@ -32,13 +32,13 @@
 
                	</span>
 
-                <span class="shortby">Sort By:</span>
+                <span class="shortby">Sort By:</span> -->
                	
             </div>
 
 
 		<% person.forEach(function(student){ %>
-			<div> 
+			<div class="box-questions"> 
 				<!-- <h2><%=student.name %><h2>
 				<p><%= student.email %></p>
 				<p><%= student.id %></p> -->
@@ -46,7 +46,7 @@
 				<div class="questions">
 					<a class="problem lead" href="/it_forum/<%= student._id %>"><%= student.question %></a>
 					<p class="description"><%= student.description.substring(0, 350) %>...</p>
-					<span><%= student.created.toDateString() %></span><span>        <%= student.created.toLocaleTimeString('en-US') %></span>
+					<span><%= student.created.toDateString() %></span><span>,       <%= student.created.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'}) %></span>
 					
 				</div>
 			</div>

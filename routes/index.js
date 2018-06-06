@@ -1,13 +1,14 @@
 var express = require("express");
 var router  = express.Router();
 var students = require("../models/post");
+var moment = require('moment');
 //var middleware = require("../middleware");
 
 
 router.get("/", function(req, res){
     if(req.query.search){
          const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-         students.find({question: regex}, function(err, person){
+         students.find({description: regex}, function(err, person){
             if(err){
                 console.log(err);
             } else  {
@@ -15,7 +16,7 @@ router.get("/", function(req, res){
                 if(students.length < 1){
                     req.flash("error", "No results found");
                 } 
-                res.render("posts/index", {person: person, noMatch: noMatch, currentUser: req.user});
+                res.render("posts/index", {person: person, noMatch: noMatch, currentUser: req.user, moment: moment});
             }
         });
     } else {
@@ -24,7 +25,7 @@ router.get("/", function(req, res){
             if(err){
                 console.log(err);
             } else  {
-                res.render("posts/index", {person: person, currentUser: req.user});
+                res.render("posts/index", {person: person, currentUser: req.user, moment: moment});
             }
         });
     }
@@ -51,7 +52,7 @@ router.post("/",isLoggedIn, function(req, res){
     var name = req.body.student.name;
     var email = req.body.student.email;
     var id = req.body.student.id;
-
+    var category = req.body.student.category;
     var question = req.body.student.question;
     var description = req.body.student.description;
    
@@ -59,7 +60,7 @@ router.post("/",isLoggedIn, function(req, res){
         id: req.user._id,
         username: req.user.username
     }
-    var newPost = {name: name, question: question, description: description, author: author, email: email, id: id}
+    var newPost = {name: name, question: question, description: description, author: author, category: category}
     // Create a new campground and save to DB
     console.log(newPost);
     students.create(newPost , function(err, newQuestion){

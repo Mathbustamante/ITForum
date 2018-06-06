@@ -71,15 +71,26 @@ app.use("/it_forum" ,indexRoutes);
 //========================
 //INITIALIZE SERVER ON PORT 3000
 //======================== 
-// app.listen(3000, function(){
-// 	console.log("Server has started on port 3000");
-// });
+app.listen(3000, function(){
+	console.log("Server has started on port 3000");
+});
 //========= END USE INITIALIZE SERVER ON PORT 3000 ===============
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("it_forum server is running!!");
-});
+
+//========================
+//Canvas test
+//======================== 
+
+app.get("/canvas",  function(req, res){
+    res.render("canvas/index")
+  });
+
+
+
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("it_forum server is running!!");
+// });
 
 // students.create(
 //     {

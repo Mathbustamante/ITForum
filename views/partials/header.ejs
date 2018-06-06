@@ -55,16 +55,31 @@
 <div class ="secondheader">
       <div class="container">
         <div id="navbar" >
-        <ul class="enter nav navbar-nav navbar-right">
-
-          <% if (currentUser) { %>
-            <li><a href="#">Welcome <%= currentUser.username  %>!</a></li>
-            <li><a href="/logout">Log out</a></li>
-          <% } else { %>  
-            <li><a href="/login">Sign in</a></li>
-            <li><a href="/register">Register</a></li>
-          <% } %>
+          <ul class="nav navbar-nav navbar-left">
+             <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/it_forum?search=wifi">Wifi</a></li>
+            <li><a href="/it_forum?search=Print">Printer</a></li>
+            <li><a href="/canvas">Canvas</a></li>
+            <li><a href="/it_forum?search=Class">Classroom</a></li>
+            
+            <li><a href="/it_forum?search=blackboard">Blackboard</a></li>
+            <li role="separator" class="divider"></li>
           </ul>
+        </li>
+          </ul>
+
+          <ul class="enter nav navbar-nav navbar-right">
+
+            <% if (currentUser) { %>
+              <li><a href="#">Welcome <%= currentUser.username  %>!</a></li>
+              <li><a href="/logout">Log out</a></li>
+            <% } else { %>  
+              <li><a href="/login">Sign in</a></li>
+              <li><a href="/register">Register</a></li>
+            <% } %>
+            </ul>
         </div>
       </div>
 </div>

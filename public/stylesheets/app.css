@@ -80,6 +80,27 @@ h1{
   margin-top: 5px;
 }
 
+@media only screen and (min-width: 768px) {
+  .navbar-left{
+    margin-left: -160px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-left{
+    margin-left: -14px;
+  }
+}
+
+.dropdown-menu{
+  background-color: #0F75BC;
+}
+
+.dropdown-menu li a{
+  color: white;
+}
+
+
 
 /* ---------- it_forum/NEW ------------- */
 
@@ -259,6 +280,22 @@ form#delete{
 .login-box{
  margin: 0 auto;
 }
+
+/* ---------- Canvas ------------- */
+
+#canvas img{
+    float: left;
+    height: 50px;
+    margin-top: -4px;
+    margin-right: 20px;
+}
+
+
+#canvas .options{
+ ;
+    margin-top: 50px;
+}
+
 
 /* ---------- footer ------------- */
 

@@ -7,8 +7,7 @@
 		            <h1>Ask a Question</h1>				
 		            <div class="form-group">
 		            	<p>Subject</p>
-		                <textarea class="form-control" type="textarea" name="student[question]" placeholder="" maxlength="140" rows="1"></textarea>
-		                                 
+		                <textarea class="form-control" type="textarea" name="student[question]" placeholder="" maxlength="140" rows="1"></textarea>	                                 
 		            </div>
 
 		             <div class="form-group">
@@ -16,22 +15,22 @@
 		                <textarea class="form-control" type="textarea" name="student[description]" placeholder="" maxlength="500" rows="7"></textarea>
 		                                 
 		            </div>
-		            <div class="Category">
-			           <div class="btn-group" role="group" aria-label="...">
-						  <div class="btn-group" role="group">
-						    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						      Category
-						      <span class="caret"></span>
-						    </button>
-						    <ul class="dropdown-menu">
-						      <li><a href="#">Wifi</a></li>
-						      <li><a href="#">Printer</a></li>
-						      <li><a href="#">Canvas</a></li>
-						      <li><a href="#">Projector</a></li>
-						    </ul>
-						  </div>
-						</div>
-		            </div>
+				
+		            <div class="form-group">
+			         
+						<select class=" btn btn-default dropdown-toggle" id="myselect">
+							  <option value="" disabled selected>Category</option>
+							  <option value="1">Wifi</option>
+							  <option value="2">Printer</option>
+							  <option value="3">Canvas</option>
+							  <option value="4">Classrooms</option>
+						</select>
+					</div>
+		            <div class="form-group">
+						<input type="text" class="hide form-control" id="dropdown-input" name="student[category]" value="<%= student.category %>"  required>
+					</div>
+
+
 		        	 <div class="submit form-group">
                     	<button class="btn btn-sm btn-primary ">Submit</button>
                 	</div>
