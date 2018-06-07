@@ -33,6 +33,12 @@ $(function(){
 $( ".submit" ).click(function() {
   var conceptName = $( "#myselect option:selected" ).text();
   $("#dropdown-input").val(conceptName);
-  console.log(conceptName);
+  // console.log(conceptName);
 });
 
+
+$( ".submit-login" ).click(function() {
+  var email = $('#email-name').val();
+  $("#email-login").val(email + '@nebrwesleyan.edu');
+  // console.log(email + '@nebrwesleyan.edu');
+});

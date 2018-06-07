@@ -8,7 +8,7 @@ var moment = require('moment');
 router.get("/", function(req, res){
     if(req.query.search){
          const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-         students.find({description: regex}, function(err, person){
+         students.find({description: regex}).sort('-posted').find(function(err, person){
             if(err){
                 console.log(err);
             } else  {
@@ -79,7 +79,7 @@ router.get("/:id", function(req, res){
         if(err){
             res.redirect("posts/new");
         } else {
-            res.render("posts/show", {student: foundStudent, currentUser: req.user});
+            res.render("posts/show", {student: foundStudent, currentUser: req.user, moment: moment});
         }
     });
 });

@@ -17,6 +17,7 @@
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
     "moment": "^2.22.2",
+    "moment-from-now": "0.0.4",
     "mongoose": "^5.0.16",
     "node-outlook": "^1.1.8",
     "passport": "^0.4.0",

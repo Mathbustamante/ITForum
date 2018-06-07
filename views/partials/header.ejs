@@ -65,7 +65,7 @@
             <li><a href="/it_forum?search=Class">Classroom</a></li>
             
             <li><a href="/it_forum?search=blackboard">Blackboard</a></li>
-            <li role="separator" class="divider"></li>
+            <!-- <li role="separator" class="divider"></li> -->
           </ul>
         </li>
           </ul>
@@ -73,7 +73,7 @@
           <ul class="enter nav navbar-nav navbar-right">
 
             <% if (currentUser) { %>
-              <li><a href="#">Welcome <%= currentUser.username  %>!</a></li>
+              <li><a href="/login">Welcome <%= currentUser.username  %>!</a></li>
               <li><a href="/logout">Log out</a></li>
             <% } else { %>  
               <li><a href="/login">Sign in</a></li>

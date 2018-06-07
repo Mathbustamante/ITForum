@@ -46,7 +46,10 @@
 				<div class="questions">
 					<a class="problem lead" href="/it_forum/<%= student._id %>"><%= student.question %></a>
 					<p class="description"><%= student.description.substring(0, 350) %>...</p>
-					<span><%= student.created.toDateString() %></span><span>,       <%= student.created.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'}) %></span>
+					
+				
+
+					<span>Posted by <%= student.author.username %></span><span> <%= moment(student.created.toLocaleString( { timeZone: 'America/Chicago' }), "YYYY-MM-DD HH:mm:ss").fromNow() %></span>
 					
 				</div>
 			</div>

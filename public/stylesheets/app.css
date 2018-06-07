@@ -263,6 +263,15 @@ form#delete{
   margin-bottom: 30px;
 }
 
+.well .row p{
+  margin-top: 10px;
+}
+
+.well .comments{
+  padding: 20px;
+  
+}
+
 /* ---------- LogIn ------------- */
 
 #login{
@@ -271,14 +280,32 @@ form#delete{
 
 #login .container{
   margin-top: 3%;
-
- 
 }
-
-
 
 .login-box{
  margin: 0 auto;
+}
+
+.login-form{
+  margin: 0 auto;
+}
+
+.modal-dialog{
+  width: 420px;
+
+}
+
+.modal-content{
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+
+
+}
+
+.modal-header img{
+
+  width: 200px;
 }
 
 /* ---------- Canvas ------------- */
