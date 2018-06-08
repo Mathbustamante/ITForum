@@ -42,3 +42,10 @@ $( ".submit-login" ).click(function() {
   $("#email-login").val(email + '@nebrwesleyan.edu');
   // console.log(email + '@nebrwesleyan.edu');
 });
+
+
+$(function() {
+      $('.example').barrating({
+        theme: 'fontawesome-stars'
+      });
+   });

@@ -193,6 +193,9 @@ form#delete-form{
 
 
 }
+.checked {
+    color: orange;
+}
 
 
 

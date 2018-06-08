@@ -32,12 +32,25 @@
                     <div class="comments">
                         <strong><%= comment.author.username %></strong>
                         <span class="pull-right">
-                        <span>Posted</span>
-                        <span><%= moment(comment.created.toLocaleString( { timeZone: 'America/Chicago' }), "YYYY-MM-DD HH:mm:ss").fromNow() %> %></span>
+                        <span>Posted
+                        <%= moment(comment.created.toLocaleString( { timeZone: 'America/Chicago' }), "YYYY-MM-DD HH:mm:ss").fromNow() %> %></span>
                         </span>
                         <p>
                             <%= comment.text %> 
                         </p>
+                       <select class="example">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        
+                        </select>
+
+                        
+
+
+
                         <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                                        <!--  <a class="btn btn-xs btn-primary" 
                                            href="/it_forum/<%=student._id %>/comments/<%=comment._id %>/edit">Edit</a>

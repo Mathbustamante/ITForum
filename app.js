@@ -10,6 +10,7 @@ var express         = require("express");
     seedDB          = require("./seeds"),
     flash           = require("connect-flash"),
     fromNow = require('moment-from-now');
+   
 
 
 //Use seedDB to manually add posts and comments (Used for testing purposes)
